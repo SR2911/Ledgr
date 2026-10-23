@@ -57,7 +57,7 @@ struct DashboardView: View {
         }
         
         .padding()
-        Text("Hello")
+        
     }
 }
 
