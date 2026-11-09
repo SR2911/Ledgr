@@ -9,6 +9,7 @@ import SwiftUI
 struct DashboardView: View {
     @AppStorage("monthlyAmount") private var monthlyAmount = ""
     @State private var showingAddExpense = false
+    @Binding var expenses: [Expense]
     var body: some View {
         ScrollView{
             VStack(alignment: .leading, spacing: 10){
@@ -95,5 +96,5 @@ struct DashboardView: View {
 
 
 #Preview{
-    DashboardView()
+    DashboardView(expenses: .constant([]))
 }

@@ -14,7 +14,7 @@ struct LedgrApp: App {
     var body: some Scene {
         WindowGroup {
             TabView{
-                DashboardView()
+                DashboardView(expenses: $expenses)
                     .tabItem{
                         Label("Home" , systemImage: "house")
                     }
