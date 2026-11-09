@@ -6,36 +6,34 @@
 //
 
 import SwiftUI
-import SwiftData
+
 
 @main
 struct LedgrApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-        
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-    
     var body: some Scene {
         WindowGroup {
             TabView{
                 DashboardView()
                     .tabItem{
-                        Label("Dashboard" , systemImage: "house")
+                        Label("Home" , systemImage: "house")
                     }
                 Text("Trends")
                     .tabItem{
                         Label("Trends", systemImage: "chart.line.uptrend.xyaxis")
                     }
+                Text("Split")
+                    .tabItem{
+                        Label("Split", systemImage: "percent")
+                    }
+                BudgetView()
+                    .tabItem{
+                        Label("Budget", systemImage: "wallet.bifold")
+                    }
+                Text("Settings")
+                    .tabItem {
+                        Label("Settings",systemImage: "gearshape")
+                    }
             }
         }
-        .modelContainer(sharedModelContainer)
     }
 }
