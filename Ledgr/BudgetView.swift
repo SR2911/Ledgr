@@ -10,7 +10,7 @@ import SwiftUI
 struct BudgetView: View {
     @AppStorage("monthlyAmount") private var monthlyAmount = ""
     var body: some View {
-        VStack(alignment: .leading, spacing: 24) { // First Vertical Stack
+        VStack(alignment: .leading, spacing: 24) {
             VStack(alignment: .leading, spacing: 5){
                 Text("BUDGET")
                     .font(.largeTitle)

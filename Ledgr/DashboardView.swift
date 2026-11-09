@@ -8,6 +8,7 @@ import SwiftUI
 
 struct DashboardView: View {
     @AppStorage("monthlyAmount") private var monthlyAmount = ""
+    @State private var showingAddExpense = false
     var body: some View {
         ScrollView{
             VStack(alignment: .leading, spacing: 10){
@@ -38,6 +39,13 @@ struct DashboardView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color(red: 0.855, green: 0.969, blue: 0.863)) //RGB value for Mint Green
                 .clipShape(RoundedRectangle(cornerRadius: 22)) // Rounded the border
+                
+                
+                Button {
+                    showingAddExpense = true
+                } label: {
+                    Label("Add expense",systemImage: "plus")
+                }
                 
                 
                 Text("RECENT SPENDING")
@@ -77,6 +85,10 @@ struct DashboardView: View {
             }
             
             .padding()
+        }
+        .sheet(isPresented: $showingAddExpense) {
+            AddExpenseView()
+            
         }
     }
 }

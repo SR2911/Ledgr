@@ -10,6 +10,7 @@ import SwiftUI
 
 @main
 struct LedgrApp: App {
+    @State private var expenses: [Expense] = []
     var body: some Scene {
         WindowGroup {
             TabView{
